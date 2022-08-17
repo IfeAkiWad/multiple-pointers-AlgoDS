@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import FilterDisplay from './FilterDisplay'
 
 const IngrFilter = ({ dish }) => {
     // console.log(dish, "dish")
