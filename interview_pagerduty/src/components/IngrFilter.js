@@ -12,7 +12,7 @@ const IngrFilter = ({ dish }) => {
 
     let filterIngr = dishes.filter(dish => {
         if(filter !== '') {
-            return dish.toLowerCase().includes(filter)
+            return dish.name.toLowerCase().includes(filter)
         }
     })
 
