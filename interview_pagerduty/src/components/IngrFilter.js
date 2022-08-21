@@ -8,14 +8,17 @@ const IngrFilter = ({ dish }) => {
     let dishes = dish.map(dish => {
         return dish
      }) 
-    console.log(dishes, "dishes")
+    console.log(dishes, "dish")
 
+    // eslint-disable-next-line array-callback-return
     let filterIngr = dishes.filter(dish => {
-        if(filter !== '') {
-            return dish.name.toLowerCase().includes(filter)
+        if(filter !== '' /*&& filter === dish.ingredient*/) {
+        //     // return dish
+        //     return dish.ingredient.toLowerCase().includes(filter)
         }
+        return dish.ingredient
     })
-
+    console.log(filterIngr, "filterIngr")
     const handleOnChangeFilter = (event) => {
         setFilter(event.target.value)
         console.log(filter)
@@ -25,8 +28,8 @@ const IngrFilter = ({ dish }) => {
         <div>
             <b>search ingredients: </b><input type="text" onChange={handleOnChangeFilter} value={filter}/> 
 
-            {filterIngr.map(d => {
-                return <FilterDisplay key={d.id} dish={dish} />
+            {filterIngr.map((d, index) => {
+                return <FilterDisplay key={index} dish={d} />
             })}
         </div>
     )
